@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.boundary</groupId>
+	<artifactId>folsom_webmachine</artifactId>
+	<version>0.7.4-SNAPSHOT</version>
+	<packaging>erlang-std</packaging>
+	<name>folsom_webmachine</name>
+	<description>Exposes folsom metrics via http using webmachine</description>
+	<scm>
+		<connection>scm:git:https://github.com/i11/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https://github.com/i11/${project.artifactId}.git</developerConnection>
+		<url>scm:git:https://github.com/i11/${project.artifactId}.git</url>
+	</scm>
+	<dependencies>
+		<dependency>
+			<groupId>com.boundary</groupId>
+			<artifactId>folsom</artifactId>
+			<version>0.7.4-SNAPSHOT</version>
+			<type>erlang-std</type>
+		</dependency>
+		<dependency>
+			<groupId>com.basho</groupId>
+			<artifactId>webmachine</artifactId>
+			<version>1.10.3-SNAPSHOT</version>
+			<type>erlang-std</type>
+		</dependency>
+		<dependency>
+			<groupId>org.erlang</groupId>
+			<artifactId>ibrowse</artifactId>
+			<version>4.0.1-SNAPSHOT</version>
+			<type>erlang-std</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>eu.lindenbaum</groupId>
+				<artifactId>maven-erlang-plugin</artifactId>
+				<version>2.2.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<skipDialyzer>true</skipDialyzer>
+					<!-- Code base is very poor. Tests are failing even using rebar. -->
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
